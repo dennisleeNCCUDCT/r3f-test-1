@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { useControls } from "leva";
 import * as THREE from "three";
-import { useFrame } from "@react-three/fiber";
 
 export default function Polyhedron(props) {
   const ref = useRef();
