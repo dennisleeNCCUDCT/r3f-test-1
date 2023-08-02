@@ -6,11 +6,6 @@ import { useFrame } from "@react-three/fiber";
 export default function Polyhedron(props) {
   const ref = useRef();
 
-  useFrame((_, delta) => {
-    ref.current.rotation.x += 0.2 * delta;
-    ref.current.rotation.y += 0.05 * delta;
-  });
-
   useControls(props.name, {
     wireframe: {
       value: false,
@@ -31,6 +26,18 @@ export default function Polyhedron(props) {
         ref.current.material.color = new THREE.Color(v);
       },
     },
+    visible: {
+      value: true,
+      onChange: (v) => {
+        ref.current.material.visible = v;
+      },
+    },
+    // setScale: { value: true },
+    // onChange: (v) => {
+    //   ref.current.material.scale = (2, 2, 2);
+    // },
+    //ref.current.rotation.y = v;
+    //ref.current.rotation.x = v;
   });
 
   return (
